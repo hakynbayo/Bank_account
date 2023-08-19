@@ -15,3 +15,6 @@ API Key Usage: The code correctly uses the RapidAPI key as a header in the reque
 CHALLENGE:
 API Rate Limits: The  RapidAPI has rate limits, managing and adhering to these limits is important to ensure the API is available consistently. The limitation is a hinderence as i had to limit the number of tests i could run.
 
+I hope this email finds you well. I'm excited to share with you the GitHub repository link for my Flight Search API solution: https://github.com/hakynbayo/flight.
+
+In this repository, you will find the implementation of a Flight Search API using Express.js and integrating with the RapidAPI service.

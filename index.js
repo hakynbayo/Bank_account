@@ -14,8 +14,8 @@ app.use(express.json());
 
 // Define validation rules using express-validator
 const validateParams = [
-  check('departureAirport').isLength({ min: 3 }),
-  check('arrivalAirport').isLength({ min: 3 }),
+  check('from').isLength({ min: 3 }),
+  check('to').isLength({ min: 3 }),
   check('date').isISO8601(),
 ];
 
@@ -39,11 +39,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
  *   get:
  *     summary: Search for flights.
  *     parameters:
- *       - name: departureAirport
+ *       - name: from
  *         in: query
  *         required: true
  *         description: Departure airport code.
- *       - name: arrivalAirport
+ *       - name: to
  *         in: query
  *         required: true
  *         description: Arrival airport code.
@@ -67,18 +67,21 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // API endpoint for flight search
 app.get('/search-flights', validateParams, async (req, res) => {
   try {
-    const { departureAirport, arrivalAirport, date } = req.query;
-
+    const { from, to, date,adult } = req.body;
+    console.log(req.body)
     // Make API request to Flight Radar API (example)
-    const response = await axios.get('https://flight-radar1.p.rapidapi.com/airports/list', {
+    const response = await axios.get('https://flight-fare-search.p.rapidapi.com/v2/flights/', {
       params: {
-        departure: departureAirport,
-        arrival: arrivalAirport,
+        from: from,
+        to: to,
         date: date,
-        apiKey: process.env.RAPIDAPI_API_KEY, // Use the environment variable
+        adult: adult,
+        type: 'economy',
+        currency: 'USD'
+        // apiKey: process.env.RAPIDAPI_API_KEY, // Use the environment variable
       },
       headers: {
-        'X-RapidAPI-Host': 'flight-radar1.p.rapidapi.com',
+        'X-RapidAPI-Host': 'flight-fare-search.p.rapidapi.com',
         'X-RapidAPI-Key': process.env.RAPIDAPI_API_KEY, // Use the environment variable
       },
     });
