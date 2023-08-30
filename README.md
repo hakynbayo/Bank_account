@@ -1,20 +1,53 @@
-FLIGHT-SEARCH-API
+# Bank Account Management App
 
-This code is an example of an Express.js server that provides an API endpoint for searching flights using the RapidAPI service. It follows the structure of a standard Express.js application and uses the express-validator library for route parameter validation. Here's an explanation of each section of the code:
+This is a simple Express.js application for managing bank accounts. It provides endpoints to create bank accounts, resolve account details, and fetch all accounts.
 
-Environment Variables: Using environment variables to store sensitive information, like API keys, is a good security practice. It keeps such information separate from the codebase and allows for easy configuration.
+## Getting Started
 
-Express and Middleware: Using Express.js simplifies building APIs. Middleware like express.json() helps parse JSON data in requests, and express-validator streamlines parameter validation.
+These instructions will help you set up and run the application on your local machine.
 
-Validation: Implementing validation helps ensure that the data provided to the API is correct and prevents potential issues down the line.
+### Prerequisites
 
-Error Handling: The try...catch block around the API request handles errors gracefully and provides meaningful error responses to clients.
+- Node.js 
+- npm (Node Package Manager)
 
-API Key Usage: The code correctly uses the RapidAPI key as a header in the request. Storing the key in an environment variable enhances security.
+### Installation
 
-CHALLENGE:
-API Rate Limits: The  RapidAPI has rate limits, managing and adhering to these limits is important to ensure the API is available consistently. The limitation is a hinderence as i had to limit the number of tests i could run.
+1. Clone the repository:
 
-I hope this email finds you well. I'm excited to share with you the GitHub repository link for my Flight Search API solution: https://github.com/hakynbayo/flight.
+   ```bash
+   git clone https://github.com/your-username/bank-account-app.git
 
-In this repository, you will find the implementation of a Flight Search API using Express.js and integrating with the RapidAPI service.
+2. Navigate to the project directory:
+    cd bank-account-app.
+
+3. Install the required dependencies:
+    npm install/ yarn
+
+4. Create a .env file in the root directory and set the desired port:
+    PORT=6000
+
+### Usage
+1. Run the application:
+    npm run start
+This will start the Express server and make it available at http://localhost:6000.
+
+2. Access the Swagger documentation:
+
+Open your web browser and visit http://localhost:6000/api-docs to view the API documentation.
+
+API Endpoints
+POST /create_account: Create a new bank account.
+GET /resolve_account?account_number=<accountNumber>: Fetch account details by account number.
+GET /fetch_all_accounts: Fetch details of all bank accounts.
+
+
+
+
+2. 
+
+
+
+
+
+
